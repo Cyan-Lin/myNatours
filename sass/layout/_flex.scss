@@ -1,0 +1,65 @@
+.row {
+  display: flex;
+  justify-content: center;
+
+  @include respondMax($tab-port) {
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 50rem;
+    margin-bottom: 6rem;
+    padding: 0 3rem;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+[class^="col-"] {
+  &:not(:last-child) {
+    margin-right: 6rem;
+
+    @include respondMax($tab-port) {
+      margin-right: 0;
+      margin-bottom: 6rem;
+    }
+  }
+}
+
+.col-1-of-2 {
+  flex: 0 0 37.5%;
+
+  // &:not(:last-child) {
+  // margin-right: 6rem;
+
+  // @include respondMax($tab-port) {
+  //   margin-right: 0;
+  //   margin-bottom: 6rem;
+  // }
+  // }
+}
+
+.col-1-of-2-footer {
+  flex: 0 0 40%;
+
+  &:not(:last-child) {
+    // text-align: right;
+    // margin-right: 25rem;
+
+    // @include respondMax($tab-port) {
+    //   margin-right: 0;
+    //   text-align: center;
+    // }
+  }
+}
+
+.col-1-of-3 {
+  flex: 0 0 23%;
+}
+
+.col-1-of-4 {
+  flex: 0 0 16.5%;
+}

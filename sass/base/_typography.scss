@@ -1,0 +1,115 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  &__text--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    padding-left: 3.5rem;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    @include respondMax($phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+
+    /* 
+  animation-delay: 3s;
+  animation-iteration-count: 3;
+  */
+  }
+
+  &__text--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    padding-left: 1.75rem;
+
+    animation: moveInRight 1s ease-out;
+
+    @include respondMax($phone) {
+      letter-spacing: 0.5rem;
+    }
+
+    /* animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; */
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  font-weight: 700;
+  // 因為inline-block佔位等同inline,所以沒有寬度下無法align-item:center
+  // width: 100%;
+  // text-align: center;
+
+  // 要用margin: 0 auto 這裡display要改成block 才行,且要設定width,因為width預設為100%
+  // width: 60%;
+  // margin: 0 auto;
+  text-transform: uppercase;
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+
+  @include respondMax($tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respondMax($phone) {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    // skew 歪斜
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+
+    // section about 在width接近600px時會大過螢幕,導致nav btn會移動
+    // 設定section about overflow:hidden可以解決nav btn移動的問題
+    @include respondMax($tab-port) {
+      transform: skewY(2deg) skewX(15deg) scale(1.05);
+    }
+  }
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  // 這裡的last child會是指 a tag(class="btn-text), 因為last-child不看種類的,指看其'父元素'的最後一個child
+  // 如果想要選擇最後一個'p tag' 則要用(:last-of-type) 才會選擇其父元素內最後一個type為p的child
+  // 不知道如何選擇最後一個class="paragraph"??
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

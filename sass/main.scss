@@ -1,0 +1,32 @@
+@import "_icon-font";
+
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/button";
+@import "components/composition";
+@import "components/feature-box";
+@import "components/card";
+@import "components/story";
+@import "components/bg-video";
+@import "components/form";
+@import "components/popup";
+
+@import "layout/header";
+@import "layout/flex";
+@import "layout/footer";
+@import "layout/navigation";
+
+@import "pages/home";
+
+/* * selector will creates a new selector for each element,
+making it a more specific selector for each element than inheritance from body. */
+
+/* if I put color: #red; in * selector, all inherit will be replaced by red,
+because * is more specific than inheritance from body*/

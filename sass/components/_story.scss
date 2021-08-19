@@ -1,0 +1,93 @@
+.story {
+  width: 60%;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  margin-bottom: 8rem;
+
+  @include respondMax($tab-port) {
+    width: 70%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respondMax($phone) {
+    width: 80%;
+    transform: skewX(0);
+    padding: 3rem;
+    padding-left: 6rem;
+  }
+
+  &__shape {
+    // flex: 0 0 15rem;
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    // circle(radius of the circle 50% => half the height and the width at 50% 50% => center)
+    // shape-outside only work with float
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    //***** just use border-radius & overflow is okey
+    // -webkit-clip-path: circle(50% at 50% 50%);
+    // clip-path: circle(50% at 50% 50%);
+    //*****
+
+    transform: translateX(-3rem) skewX(12deg);
+
+    position: relative;
+
+    @include respondMax($phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
+  }
+
+  &__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+
+    transition: all 0.5s;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-white;
+    font-size: 1.7rem;
+    transform: translate(-50%, 20%);
+    opacity: 0;
+
+    transition: all 0.5s;
+    // remove shaking
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+    @include respondMax($phone) {
+      transform: skewX(0);
+    }
+  }
+}
