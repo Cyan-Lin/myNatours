@@ -53,13 +53,17 @@
       width: 65%;
       flex-direction: column;
       text-align: center;
+
+      // modal scoll
+      max-height: calc(100vh - 5rem);
+      overflow-y: auto;
     }
 
     @include respondMax($phone) {
       width: 80%;
 
       // modal scoll
-      max-height: calc(100vh - 20rem);
+      max-height: calc(100vh - 10rem);
       overflow-y: auto;
     }
   }
