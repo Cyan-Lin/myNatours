@@ -40,9 +40,6 @@
     transform: translate(-50%, -50%) scale(0.25);
     transition: all 0.4s 0.2s;
 
-    // flexbox
-    // display: flex;
-
     display: table;
 
     @include respondMax($big-desktop) {
@@ -55,7 +52,7 @@
       text-align: center;
 
       // modal scoll
-      max-height: calc(100vh - 5rem);
+      max-height: stretch;
       overflow-y: auto;
     }
 
@@ -63,7 +60,8 @@
       width: 80%;
 
       // modal scoll
-      max-height: calc(100vh - 10rem);
+      max-height: stretch;
+      margin-bottom: 10rem;
       overflow-y: auto;
     }
   }
